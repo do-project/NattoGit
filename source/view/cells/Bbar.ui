@@ -1,0 +1,24 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFF00",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"textAlign":"center",
+				"x":"232",
+				"width":"261",
+				"y":"25",
+				"fontSize":"32",
+				"id":"do_Label_1",
+				"text":"上拉加载",
+				"type":"do_Label",
+				"fontColor":"555555FF",
+				"height":"53"
+			}
+		],
+		"height":"100"
+	}
+}

@@ -1,0 +1,106 @@
+﻿{
+  "ID": "do_BaiduPush",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "百度云推送",
+  "Version": "Internal",
+  "Description": "集成百度云推送，android支持通知消息、透传消息；iOS支持通知消息",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_BaiduPush/百度云推送.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "bind",
+      "Description": "获取绑定请求的结果，需要注册在app.js或app.lua",
+      "ReturnType": "Node",
+      "ReturnDesc": "{errorCode:'绑定接口返回值，0-成功',appId:'',userId:'',channelId:''}"
+    },
+    {
+      "ID": "iOSMessage",
+      "Description": "需要注册在app.js或app.lua。分三种情况：1、程序已启动且运行在前台，此时iOS接到推送消息会触发该事件，可在该事件里对推送消息进行处理，否则推送消息只会显示在状态栏中；2、程序已启动但运行在后台，此时只会显示一个横幅的消息提醒，建议用notificationClicked事件处理推送消息；3、程序未运行或者被杀死进程，此时接到推送消息不会触发该事件，而会触发do_Global的launch事件，返回值中type为notification",
+      "ReturnType": "Node",
+      "ReturnDesc": "{message:'推送的消息',customContent:'自定义内容，为空或者json字符串'}"
+    },
+    {
+      "ID": "message",
+      "Description": "接收透传消息触发，需要注册在app.js或app.lua，iOS不支持",
+      "ReturnType": "Node",
+      "ReturnDesc": "{message:'推送的消息',customContent:'自定义内容，为空或者json字符串'}"
+    },
+    {
+      "ID": "notificationClicked",
+      "Description": "接收通知点击触发，需要注册在app.js或app.lua",
+      "ReturnType": "Node",
+      "ReturnDesc": "{title:'推送的通知的标题',description:'推送的通知的描述',customContent:'自定义内容，为空或者json字符串'}，iOS不支持title输入，所以也不返回title"
+    },
+    {
+      "ID": "unbind",
+      "Description": "获取解除绑定请求的结果，需要注册在app.js或app.lua",
+      "ReturnType": "Node",
+      "ReturnDesc": "{errorCode:'错误码。0表示从云推送解绑定成功；非0表示失败'}"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "getIconBadgeNumber",
+      "Name": "获取未读推送消息数量",
+      "Description": "该方法可获取百度推送的未读消息数量；仅支持iOS平台",
+      "ReturnType": "Number",
+      "ReturnDesc": "返回未读推送消息数量",
+      "Paras": []
+    },
+    {
+      "ID": "setIconBadgeNumber",
+      "Name": "设置未读推送消息数量",
+      "Description": "该方法可设置百度推送的未读消息数量并显示在应用图标的右上角；仅支持iOS平台",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "quantity",
+          "Name": "数量",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "startWork",
+      "Name": "Push服务初始化及绑定",
+      "Description": "完成Push服务的初始化，并自动完成（触发）bind工作",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "stopWork",
+      "Name": "停止Push服务",
+      "Description": "停止本应用Push服务进程，并自动完成（触发）unbind工作",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

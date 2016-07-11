@@ -1,0 +1,32 @@
+{
+	"RootView":{
+		"bgColor":"F2F2F2FF",
+		"width":"200",
+		"id":"foodbg",
+		"type":"do_LinearLayout",
+		"views":[
+			{
+				"margin":"30,30,0,30",
+				"width":"140",
+				"x":"30",
+				"maxLines":"0",
+				"y":"30",
+				"fontSize":"32",
+				"id":"do_Label_text",
+				"type":"do_Label",
+				"fontColor":"555555FF",
+				"height":"-1"
+			},
+			{
+				"margin":"30,0,0,0",
+				"bgColor":"E0E0E0FF",
+				"width":"200",
+				"y":"59",
+				"id":"do_Label_line",
+				"type":"do_Label",
+				"height":"2"
+			}
+		],
+		"height":"-1"
+	}
+}

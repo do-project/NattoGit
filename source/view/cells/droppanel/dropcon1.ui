@@ -1,0 +1,29 @@
+{
+	"RootView":{
+		"bgColor":"F6F6F6FF",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"F6F6F6FF",
+				"templates":"source://view/cells/droppanel/dropcon1_cell.ui",
+				"width":"750",
+				"id":"do_ListView_1",
+				"type":"do_ListView",
+				"selectedColor":"E0E0E0FF",
+				"height":"855"
+			},
+			{
+				"visible":"false",
+				"width":"375",
+				"x":"375",
+				"id":"do_ListView_2",
+				"type":"do_ListView",
+				"height":"855"
+			}
+		],
+		"height":"855"
+	}
+}

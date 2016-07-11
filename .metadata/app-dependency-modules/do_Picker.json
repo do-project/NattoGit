@@ -1,0 +1,136 @@
+﻿{
+  "ID": "do_Picker",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "单选控件控件",
+  "Version": "Internal",
+  "Description": "可上下滑动选择的单选控件，停留在中间即为选中项",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Picker/单选控件.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "fontColor",
+      "Name": "字体颜色",
+      "Type": "String",
+      "DefaultValue": "000000FF",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置字体显示颜色，值格式为：8位16进制字符，前6位是RGB颜色值，后两位是透明度（Alpha），例如：000000FF",
+      "Design": {
+        "Type": "Color",
+        "Data": []
+      }
+    },
+    {
+      "ID": "fontSize",
+      "Name": "字体大小",
+      "Type": "Number",
+      "DefaultValue": "20",
+      "EditType": "0",
+      "Group": "",
+      "Description": "字体大小",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "fontStyle",
+      "Name": "字体风格",
+      "Type": "String",
+      "DefaultValue": "normal",
+      "EditType": "1",
+      "Group": "",
+      "Description": "包含4种类型：normal：常规bold：粗体italic：斜体bold_italic：粗斜体（iOS平台不支持）",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "normal",
+            "value": "常规"
+          },
+          {
+            "id": "bold",
+            "value": "粗体"
+          },
+          {
+            "id": "italic",
+            "value": "斜体"
+          },
+          {
+            "id": "bold_italic",
+            "value": "粗斜体"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "index",
+      "Name": "当前选中的数据索引",
+      "Type": "Number",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "数据的索引值，设置时会切换数据选择，索引小于0时指向数组第一个数据，越界时指向数组最后一个数据",
+      "Design": {
+        "Type": "Integer",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "selectChanged",
+      "Description": "当数据变化或数据索引变化触发",
+      "ReturnType": "Number",
+      "ReturnDesc": "返回选中数据的索引"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "bindItems",
+      "Name": "绑定item的数据",
+      "Description": "可绑定listData实例",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "需有一项为text用于显示文字，比如['a''b'...]"
+        }
+      ]
+    },
+    {
+      "ID": "refreshItems",
+      "Name": "刷新item数据",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

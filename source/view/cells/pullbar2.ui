@@ -1,0 +1,37 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFF00",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"237",
+				"x":"330",
+				"y":"44",
+				"fontSize":"32",
+				"id":"do_Label_1",
+				"text":"下拉刷新",
+				"type":"do_Label",
+				"fontColor":"808080FF",
+				"height":"52"
+			},
+			{
+				"progressWidth":"20",
+				"progressColor":"42A0FFFF",
+				"progressBgColor":"D0D0D0FF",
+				"x":"260",
+				"width":"60",
+				"y":"40",
+				"progress":"80",
+				"style":"cycle",
+				"fontSize":"60",
+				"id":"do_ProgressBar2_1",
+				"type":"do_ProgressBar2",
+				"height":"60"
+			}
+		],
+		"height":"120"
+	}
+}

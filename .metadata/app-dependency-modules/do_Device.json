@@ -1,0 +1,159 @@
+﻿{
+  "ID": "do_Device",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "设备的信息环境类",
+  "Version": "Internal",
+  "Description": "设备辅助功能，获取设备系统相关信息、提示音、震动、闪光灯、截屏等",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Device/设备.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "beep",
+      "Name": "系统通知提示音",
+      "Description": "播放系统通知提示音",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "flash",
+      "Name": "开关闪光灯",
+      "Description": "开关手机系统闪光灯",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "status",
+          "Name": "闪光灯状态",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "闪光灯状态，支持两种状态：on（开启）、off（关闭）"
+        }
+      ]
+    },
+    {
+      "ID": "getAllAppInfo",
+      "Name": "获取应用信息",
+      "Description": "获取当前系统所以应用相关信息，暂时只支持获取每个应用流量使用信息（仅Android支持）",
+      "ReturnType": "Node",
+      "ReturnDesc": "[{'name':'app的名称'，'pname':'app的包名','isSystem':'是否为系统应用，0 不是，1 是','traffic':'app使用的流量，单位byte'},...]",
+      "Paras": []
+    },
+    {
+      "ID": "getGPSInfo",
+      "Name": "获取设备GPS信息",
+      "Description": "获取设备的GPS信息",
+      "ReturnType": "Node",
+      "ReturnDesc": "[{'state':'当前设备GPS状态']，其中state为0表示关闭，为1表示打开",
+      "Paras": []
+    },
+    {
+      "ID": "getInfo",
+      "Name": "获取设备信息",
+      "Description": "获取设备相关信息，如：唯一设备ID、设备名称、系统类型、系统版本号、分辨率大小、IMSI等",
+      "ReturnType": "Node",
+      "ReturnDesc": "返回值是一个JSON键值对，键值分别为“设备信息名称”和“设备信息值”，比如{ \"OS\":\"Android\",    \"OSVersion\":\"4.1\",    .....}不同的操作系统可能有少部分信息获取不到，另外deviceId：设备唯一标识，deviceName：设备名称，OS：操作系统版本，OSVersion：操作系统版本号，sdkVersion：获取手机操作系统SDK版本号，resolutionH：水平分辨率，resolutionV：垂直分辨率，dpiH：水平像素密度，dpiV：垂直像素密度，screenH：水平屏幕宽度（dip)，screenV：垂直屏幕宽度（dip)，phoneType：手机机型，phoneNumber：手机号码，communicationType：运营商类型，simSerialNumber：SIM卡的序列号，IMSI：IMSI(国际移动用户识别码)",
+      "Paras": []
+    },
+    {
+      "ID": "getLocale",
+      "Name": "获取系统环境",
+      "Description": "获取当前系统设置的国家和语言",
+      "ReturnType": "Node",
+      "ReturnDesc": "[{'country':'系统国家','language':'当前语言']",
+      "Paras": []
+    },
+    {
+      "ID": "home",
+      "Name": "应用退到后台",
+      "Description": "模仿iOS系统中点击home键的效果，让应用退到后台，仅支持android平台",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "vibrate",
+      "Name": "振动",
+      "Description": "触发设备振动，缺省是一秒",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "duration",
+          "Name": "振动持续时间",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "1000",
+          "Description": "振动持续时间，单位是毫秒"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "screenShot",
+      "Name": "截屏",
+      "Description": "截取当前屏幕显示内容",
+      "ReturnType": "String",
+      "ReturnDesc": "返回截屏图片保存的地址，是一个data://temp/do_Device目录下一个图片文件，文件名是日期+时间",
+      "Paras": [
+        {
+          "ID": "rect",
+          "Name": "截屏设置",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "参数格式为 0,0,300,200，分别表示 x,y,width,height，当不填写该参数时截取当前屏幕的全部内容"
+        }
+      ]
+    },
+    {
+      "ID": "srceenShotAsBitmap",
+      "Name": "截屏",
+      "Description": "截取当前屏幕显示内容",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "bitmap",
+          "Name": "绑定的bitmap对象",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "rect",
+          "Name": "截屏设置",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "参数格式为 0,0,300,200，分别表示 x,y,width,height，当不填写该参数时截取当前屏幕的全部内容"
+        }
+      ]
+    }
+  ]
+}

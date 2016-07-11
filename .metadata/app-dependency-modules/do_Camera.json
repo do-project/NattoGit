@@ -1,0 +1,91 @@
+﻿{
+  "ID": "do_Camera",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "照相机",
+  "Version": "Internal",
+  "Description": "启动系统的相机拍照获取照片\r\n",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Camera/照相.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "capture",
+      "Name": "拍照、获取照片",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "执行方法后，弹出系统相机，拍照后，图片的原始分辨率通常比较高。拍完的图片缺省会另存到data://temp/do_Camera/目录下可以通过用户传入width，height来裁剪图片大小。如果设置的宽高比例和真实图片宽高比例不一致的话，图片会自动平铺拉伸。width和height均为-1时保持图片的原始宽高不变；width或height有任何一个值为-1，则保持图片的原始宽高比不变 ,以不为-1的那个值做为基准, 保持原图的宽高比。也可以通过设置清晰度quality来使图片文件变小",
+      "Paras": [
+        {
+          "ID": "width",
+          "Name": "裁剪后的图片的宽度",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "不设置表示原始大小"
+        },
+        {
+          "ID": "height",
+          "Name": "裁剪后的图片的高度 ",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "不设置表示原始大小"
+        },
+        {
+          "ID": "quality",
+          "Name": "清晰度1-100",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "100",
+          "Description": "100表示原始的图片质量，清晰度越低，图片文件大小越小。windows平台不支持"
+        },
+        {
+          "ID": "iscut",
+          "Name": "是否启动中间取景界面",
+          "Type": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "如果这个值为true的话，拍照结束后会出现一个中间的取景界面，有一个矩形框让用户选择局部区域；windowsPhone不支持"
+        },
+        {
+          "ID": "facingFront",
+          "Name": "启动前置摄像头",
+          "Type": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "如果这个值为true的话，一启动拍照会打开前置摄像头"
+        },
+        {
+          "ID": "outPath",
+          "Name": "保存路径",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "要保存的图片文件路径，支持数据区data://，指定到文件名，若不填写则默认保存到data://temp/do_Camera/目录下"
+        }
+      ]
+    }
+  ]
+}

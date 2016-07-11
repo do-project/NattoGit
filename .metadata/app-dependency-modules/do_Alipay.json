@@ -1,0 +1,123 @@
+﻿{
+  "ID": "do_Alipay",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "支付宝支付",
+  "Version": "Internal",
+  "Description": "调用手机支付宝客户端，完成支付功能",
+  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/D/20160121/do_Alipay/支付.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "pay",
+      "Name": "支付",
+      "Description": "调用支付宝支付",
+      "ReturnType": "Node",
+      "ReturnDesc": "{'code':'9000','msg':'success'}，其中code的9000为订单支付成功,8000为正在处理中,4000为 订单支付失败,6001为用户中途取消,6002为网络连接出错",
+      "Paras": [
+        {
+          "ID": "rsaPrivate",
+          "Name": "用户私钥",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "通过支付宝提供的工具生成的"
+        },
+        {
+          "ID": "rsaPublic",
+          "Name": "支付宝公钥",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "通过支付宝提供的工具生成一个用户公钥，然后上传到支付宝网站，返回一个支付宝公钥"
+        },
+        {
+          "ID": "partner",
+          "Name": "合作者身份ID",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "签约的支付宝账号对应的支付宝唯一用户号。以2088开头的16位纯数字组成。"
+        },
+        {
+          "ID": "notifyUrl",
+          "Name": "服务器异步通知页面路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支付宝服务器把处理结果返回该url，长度不能超过200个字符"
+        },
+        {
+          "ID": "tradeNo",
+          "Name": "商户网站唯一订单号",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支付宝合作商户网站唯一订单号,长度不能超过64个字符"
+        },
+        {
+          "ID": "subject",
+          "Name": "商品名称",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商品的标题/交易标题/订单标题/订单关键字等,长度不能超过128个字符"
+        },
+        {
+          "ID": "sellerId",
+          "Name": "卖家支付宝账号",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "卖家支付宝账号（邮箱或手机号码格式）或其对应的支付宝唯一用户号,长度不能超过16个字符"
+        },
+        {
+          "ID": "totalFee",
+          "Name": "支付金额",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "该笔订单的资金总额，单位为RMB-Yuan。取值范围为[0.01，100000000.00]，精确到小数点后两位。"
+        },
+        {
+          "ID": "body",
+          "Name": "商品详情",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body,长度不能超过512个字符。"
+        },
+        {
+          "ID": "timeOut",
+          "Name": "未付款交易的超时时间",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "设置未付款交易的超时时间，一旦超时，该笔交易就会自动被关闭。\n当用户输入支付密码、点击确认付款后（即创建支付宝交易后）开始计时。\n取值范围：1m～15d，或者使用绝对时间（示例格式：2014-06-13 16:00:00）。\nm-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。\n该参数数值不接受小数点，如1.5h，可转换为90m。"
+        }
+      ]
+    }
+  ]
+}

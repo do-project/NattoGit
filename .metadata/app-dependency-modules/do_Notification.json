@@ -1,0 +1,134 @@
+﻿{
+  "ID": "do_Notification",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "通知类",
+  "Version": "Internal",
+  "Description": "各种方式提醒和通知用户",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Notification/通知notify.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "toast",
+      "Name": "弹出toast窗口",
+      "Description": "支持类似Android的toast的方式，弹出一个提示框，但是很短时间内会自动消隐，x和y都不赋值，即显示默认位置",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "text",
+          "Name": "toast窗口的正文",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "x",
+          "Name": "toast窗口的x坐标位置",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "y",
+          "Name": "toast窗口的y坐标位置",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "alert",
+      "Name": "弹出alert窗口",
+      "Description": "通过alert来提示用户，alert是模态的，只有一个确定按钮",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "text",
+          "Name": "alert窗口的正文",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "alert窗口的正文"
+        },
+        {
+          "ID": "title",
+          "Name": "alert窗口的标题",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "alert窗口的标题"
+        }
+      ]
+    },
+    {
+      "ID": "confirm",
+      "Name": "弹出confirm窗口",
+      "Description": "confirm窗口有2个按钮，可以自定义按钮的文本内容",
+      "ReturnType": "Number",
+      "ReturnDesc": "1 表示点击了button1按钮\r\n2 表示点击了button2按钮",
+      "Paras": [
+        {
+          "ID": "text",
+          "Name": "confirm窗口的正文",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "confirm窗口的正文"
+        },
+        {
+          "ID": "title",
+          "Name": "confirm窗口的标题",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "confirm窗口的标题"
+        },
+        {
+          "ID": "button1text",
+          "Name": "按钮1的文本",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "确定",
+          "Description": "左边按钮1的正文"
+        },
+        {
+          "ID": "button2text",
+          "Name": "按钮2的文本",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "取消",
+          "Description": "右边按钮2的正文"
+        }
+      ]
+    }
+  ]
+}

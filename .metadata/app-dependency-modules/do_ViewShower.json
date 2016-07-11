@@ -1,0 +1,108 @@
+﻿{
+  "ID": "do_ViewShower",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "过场动画效果",
+  "Version": "Internal",
+  "Description": "多个View切换控件,并保存各个View的状态",
+  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/R/20150617/0e5d1e63-388e-41f1-9995-253f2c10545a.png",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "viewChanged",
+      "Description": "View切换完成时触发",
+      "ReturnType": "String",
+      "ReturnDesc": "返回View切换后的id"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "addViews",
+      "Name": "增加多个View",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "增加的View数组",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要增加的View的索引, 默认值为增加到最后.结构[{ id : '', path : ''} , {id :'' , path : ''} , ..... ]"
+        }
+      ]
+    },
+    {
+      "ID": "removeView",
+      "Name": "删除某个View",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "id",
+          "Name": "删除的View索引",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要删除的View的id"
+        }
+      ]
+    },
+    {
+      "ID": "showView",
+      "Name": "切换View",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "id",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "切换的目标View的 ID"
+        },
+        {
+          "ID": "animationType",
+          "Name": "过场动画类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "winphone8不支持该动画效果，android和ios支持。\\r\\n目前支持以下几种：\\r\\n\\\"slide_l2r\\\": 从左至右滑出\\r\\n\\\"slide_r2l\\\": 从右至左滑出\\r\\n\\\"slide_b2t\\\": 从底至上滑出\\r\\n\\\"slide_t2b\\\": 从上至底滑出\\r\\n\\\"push_l2r\\\": 从左至右推出\\r\\n\\\"push_r2l\\\": 从右至左推出\\r\\n\\\"push_b2t\\\": 从底至上推出\\r\\n\\\"push_t2b\\\": 从上至底推出\\r\\n\\\"fade\\\" : 淡入淡出\\r\\n\\\"page_curl\\\" : 上翻页\\r\\n\\\"page_uncurl\\\" : 下翻页\\r\\n\\\"cube\\\" :立体翻转"
+        },
+        {
+          "ID": "animationTime",
+          "Name": "",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "300",
+          "Description": "动画效果持续时间"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

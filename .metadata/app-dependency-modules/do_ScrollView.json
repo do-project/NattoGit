@@ -1,0 +1,163 @@
+﻿{
+  "ID": "do_ScrollView",
+  "IsContainer": "1",
+  "Type": "UI",
+  "Name": "滚动视图",
+  "Version": "Internal",
+  "Description": "滚动视图，支持上下和左右滚动两种类型，只有在滚动视图内容宽、高度超过自身定义的宽、高度时才可以滚动，滚动视图只能包含一个子组件，通常都是一个ALayout或LinearLayout",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_ScrollView/滚动视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "canScrollToTop",
+      "Name": "是否滚动到屏幕顶部",
+      "Type": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "UI",
+      "Description": "属性设置成true时可以通过点击手机状态栏返回内容的顶部；仅支持iOS平台",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "direction",
+      "Name": "滚动方向",
+      "Type": "String",
+      "DefaultValue": "vertical",
+      "EditType": "0",
+      "Group": "",
+      "Description": "设置视图滚动方向值，支持两种类型：horizontal（横向）、vertical（纵向）",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "horizontal",
+            "value": "横向布局"
+          },
+          {
+            "id": "vertical",
+            "value": "纵向布局"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "headerView",
+      "Name": "顶部视图",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "可自定义下拉滑动显示顶部视图效果，通常用于动态加载数据过程，下拉顶部自定义视图是一个UI模板文件，例如source://view/head.ui，只有滚动方向为纵向才有效，横向不支持",
+      "Design": {
+        "Type": "FileSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isHeaderVisible",
+      "Name": "是否显示headerview",
+      "Type": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "设置是否显示顶部视图，只有滚动方向为纵向才有效，横向不支持；缺省false不显示",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isShowbar",
+      "Name": "显示滚动条",
+      "Type": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "为true的时候，当scrollview内内容超出scrollview的边界，会出现滚动条标识",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "pull",
+      "Description": "下拉滑动显示顶部视图时触发事件",
+      "ReturnType": "String",
+      "ReturnDesc": "返回{state,offset}，其中state表示headerview的状态，offset为headerview下拉的位移量；其中state=0：表示开始下拉headerview，在headerview下拉到headerview复位整个过程中，pull事件会触发很多次；state=1：表示下拉headerview超过headerview的高度，触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui；state=2：下拉超过一定值，触发state=1事件后，松手会触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui，然后开始加载数据，数据加载完后需要调用rebound方法让header复位"
+    },
+    {
+      "ID": "scroll",
+      "Description": "控件滚动触发",
+      "ReturnType": "String",
+      "ReturnDesc": "控件滚动的距离"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "rebound",
+      "Name": "顶部视图复位",
+      "Description": "如顶部视图当前属于可见状态，则将其变为不可见，恢复到没有下拉滑动之前视图效果",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "scrollTo",
+      "Name": "滚动到指定位置",
+      "Description": "滚动方向跟ScrollView的方向一致",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "offset",
+          "Name": "指定位置",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "0",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "toBegin",
+      "Name": "滚到到最前",
+      "Description": "当前滚动视图是横向则滚动到最左边，如果是纵向则滚到最顶部",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "toEnd",
+      "Name": "滚到到最后",
+      "Description": "当前滚动视图是横向则滚动到最右边，如果是纵向则滚到最底部",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

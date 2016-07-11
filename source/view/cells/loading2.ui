@@ -1,0 +1,30 @@
+{
+	"RootView":{
+		"width":"750",
+		"id":"ladings",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"260",
+				"width":"230",
+				"y":"32",
+				"id":"do_FrameAnimationView_1",
+				"type":"do_FrameAnimationView",
+				"height":"230"
+			},
+			{
+				"textAlign":"center",
+				"width":"200",
+				"x":"275",
+				"y":"250",
+				"fontSize":"30",
+				"id":"do_Label_2",
+				"text":"加载中",
+				"type":"do_Label",
+				"fontColor":"666666FF",
+				"height":"40"
+			}
+		],
+		"height":"307"
+	}
+}

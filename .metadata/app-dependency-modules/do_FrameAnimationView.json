@@ -1,0 +1,92 @@
+﻿{
+  "ID": "do_FrameAnimationView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "帧动画视图",
+  "Version": "Internal",
+  "Description": "加载gif动图的视图，也可以将多张图片组合设置为动图效果；gifSource:和imagesSource属性不会同时起作用，两个属性同时设置时以imagesSource为准",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_FrameAnimationView/帧动画.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "startGif",
+      "Name": "开始动画",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "gif资源",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支持data://, source://路径"
+        },
+        {
+          "ID": "repeat",
+          "Name": "重复次数",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "1",
+          "Description": "帧动画的重复次数，为-1或小于0时表示无限循环，为0时表示没有动画，默认执行一次；windows平台不支持设置重复次数，只能循环播放"
+        }
+      ]
+    },
+    {
+      "ID": "startImages",
+      "Name": "开始动画",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "图片列表",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "[ {path:'data://2.png',duration:50}, {path:'data://3.png',duration:50} ] ，支持data://, source://路径，其中duration的单位为毫秒"
+        },
+        {
+          "ID": "repeat",
+          "Name": "重复次数",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "1",
+          "Description": "帧动画的重复次数，为-1或小于0时表示无限循环，为0时表示没有动画，默认执行一次"
+        }
+      ]
+    },
+    {
+      "ID": "stop",
+      "Name": "结束动画",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

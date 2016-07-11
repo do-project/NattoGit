@@ -1,0 +1,187 @@
+﻿{
+  "ID": "do_Button",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "按钮控件",
+  "Version": "Internal",
+  "Description": "按钮控件，支持通常按钮的属性，方法和事件，缺省是透明无边框。",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Button/按钮.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "bgImage",
+      "Name": "背景图片",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "可设置本地文件：支持data://和source://两种方式。文件格式说明参考Storage类",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "enabled",
+      "Name": "是否有效",
+      "Type": "Bool",
+      "DefaultValue": "true",
+      "EditType": "1",
+      "Group": "",
+      "Description": "控制button的点击事件，缺省为true，表示用户如果点击按钮会触发button的三种touch事件",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "fontColor",
+      "Name": "字体颜色",
+      "Type": "String",
+      "DefaultValue": "000000FF",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置字体显示颜色，值格式为：8位16进制字符，前6位是RGB颜色值，后两位是透明度（Alpha），例如：000000FF",
+      "Design": {
+        "Type": "Color",
+        "Data": []
+      }
+    },
+    {
+      "ID": "fontSize",
+      "Name": "字体大小",
+      "Type": "Number",
+      "DefaultValue": "17",
+      "EditType": "1",
+      "Group": "",
+      "Description": "",
+      "Design": {
+        "Type": "Integer",
+        "Data": []
+      }
+    },
+    {
+      "ID": "fontStyle",
+      "Name": "字体风格",
+      "Type": "String",
+      "DefaultValue": "normal",
+      "EditType": "1",
+      "Group": "",
+      "Description": "包含4种类型：normal：常规bold：粗体italic：斜体bold_italic：粗斜体（iOS平台不支持）",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "normal",
+            "value": "常规"
+          },
+          {
+            "id": "bold",
+            "value": "粗体"
+          },
+          {
+            "id": "italic",
+            "value": "斜体"
+          },
+          {
+            "id": "bold_italic",
+            "value": "粗斜体"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "radius",
+      "Name": "圆角半径",
+      "Type": "Number",
+      "DefaultValue": "0",
+      "EditType": "0",
+      "Group": "",
+      "Description": "像素值，为0时表示不是圆角按钮；@deprecated，该属性为不建议使用，建议使用UI的基础属性border来替代",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "text",
+      "Name": "标题",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "获取或设置与此控件关联的文本",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "textFlag",
+      "Name": "字体标示",
+      "Type": "String",
+      "DefaultValue": "normal",
+      "EditType": "0",
+      "Group": "",
+      "Description": "包含3种类型：normal：常规underline ：下划线strikethrough ：删除线",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "normal",
+            "value": "常规"
+          },
+          {
+            "id": "underline",
+            "value": "下划线"
+          },
+          {
+            "id": "strikethrough",
+            "value": "删除线"
+          }
+        ]
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "touch",
+      "Description": "按下并在按钮范围抬起，触发该事件",
+      "ReturnType": "String",
+      "ReturnDesc": ""
+    },
+    {
+      "ID": "touchDown",
+      "Description": "按钮范围内按下即可触发",
+      "ReturnType": "String",
+      "ReturnDesc": ""
+    },
+    {
+      "ID": "touchUp",
+      "Description": "一旦按下，手指离开即触发，不论是否在按钮范围内",
+      "ReturnType": "String",
+      "ReturnDesc": ""
+    }
+  ],
+  "syncMethodes": [],
+  "asyncMethodes": []
+}

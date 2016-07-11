@@ -1,0 +1,32 @@
+{
+	"RootView":{
+		"bgColor":"1E293C00",
+		"x":"0",
+		"width":"375",
+		"y":"0",
+		"id":"do_ALayout_2",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"375",
+				"id":"do_ALayout_3",
+				"type":"do_ALayout",
+				"isStretch":"false",
+				"views":[
+					{
+						"border":"FFFFFF00,0,3",
+						"bgColor":"1E293C00",
+						"width":"375",
+						"id":"do_ImageView_1",
+						"source":"source://image/testit.png",
+						"type":"do_ImageView",
+						"cacheType":"always",
+						"height":"150"
+					}
+				],
+				"height":"150"
+			}
+		],
+		"height":"150"
+	}
+}

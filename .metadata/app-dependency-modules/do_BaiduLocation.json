@@ -1,0 +1,220 @@
+﻿{
+  "ID": "do_BaiduLocation",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "定位服务",
+  "Version": "Internal",
+  "Description": "利用设备当前的GPS信息（GPS定位），基站信息（基站定位）和Wi-Fi信息（Wi-Fi定位）完成定位，根据设备当前的实际情况（如是否开启GPS，是否连接网络，是否扫描到Wi-Fi信息等）进行定位",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_BaiduLocation/百度全景地图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "result",
+      "Description": "接收到定位/更新定位时候触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "{latitude:'纬度​'，longitude:'经度', address:'北京市海淀区'}"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "getDistance",
+      "Name": "获取实际距离",
+      "Description": "根据上两个点的坐标来获取两点之间实际直线距离",
+      "ReturnType": "Number",
+      "ReturnType_JavaScript": "Number",
+      "ReturnDesc": "返回坐标点之间距离，单位为米",
+      "Paras": [
+        {
+          "ID": "startPoint",
+          "Name": "起点经纬度",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "设置起点经纬度，如39.915174,116.403901表示(纬度,经度)"
+        },
+        {
+          "ID": "endPoint",
+          "Name": "终点坐标",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "设置终点经纬度，如40.915174,117.403901表示(纬度,经度)"
+        }
+      ]
+    },
+    {
+      "ID": "start",
+      "Name": "开启定位",
+      "Description": "开启定位",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "model",
+          "Name": "定位模式",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "high",
+          "Description": "high:高精度定位模式（会同时使用Wi-Fi和基站和GPS定位，优先返回最高精度的定位结果）；low：低精度（不会使用GPS，只会使用Wi-Fi和基站定位）；middle: 中精度（不需要连接网络，只使用GPS进行定位，这种模式下不支持室内环境的定位）"
+        },
+        {
+          "ID": "isLoop",
+          "Name": "是否循环不停的获取",
+          "Type": "Bool",
+          "Type_JavaScript": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "为false时只获取一次位置，触发一次result事件。 当值为true时,程序会不断获取新的位置（android是依据时间间隔，根据精度参数的不同，每隔30s返回1~2次结果；iOS是依据距离间隔，根据精度参数的不同，每超过10m/100m/1000m时返回结果），触发result事件"
+        }
+      ]
+    },
+    {
+      "ID": "startScan",
+      "Name": "开启定位扫描",
+      "Description": "开启定位扫描",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "model",
+          "Name": "定位模式",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "high",
+          "Description": "high:高精度定位模式（会同时使用Wi-Fi和基站和GPS定位，优先返回最高精度的定位结果）；low：低精度（不会使用GPS，只会使用Wi-Fi和基站定位）；middle: 中精度（不需要连接网络，只使用GPS进行定位，这种模式下不支持室内环境的定位）"
+        },
+        {
+          "ID": "span",
+          "Name": "扫描间隔",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "1000",
+          "Description": "定位扫描间隔，单位为毫秒，最低为1000毫秒，扫描结果通过result事件返回；iOS平台该参数无效，因机制不同，iOS平台移动距离有变化时返回结果"
+        }
+      ]
+    },
+    {
+      "ID": "stop",
+      "Name": "停止定位",
+      "Description": "停止定位",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "stopScan",
+      "Name": "停止定位扫描",
+      "Description": "停止定位扫描",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "geoCode",
+      "Name": "正向地图编码",
+      "Description": "实现将地址信息转换为经纬度坐标点的过程",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "{latitude:'纬度​'，longitude:'经度'}",
+      "Paras": [
+        {
+          "ID": "city",
+          "Name": "城市名",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "address",
+          "Name": "地址",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "locate",
+      "Name": "定位",
+      "Description": "定位一次",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "{latitude:'纬度​'，longitude:'经度', address:'北京市海淀区'}",
+      "Paras": [
+        {
+          "ID": "model",
+          "Name": "定位模式",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "high",
+          "Description": "high:高精度定位模式（会同时使用Wi-Fi和基站和GPS定位，优先返回最高精度的定位结果）；low：低精度（不会使用GPS，只会使用Wi-Fi和基站定位）；middle: 中精度（不需要连接网络，只使用GPS进行定位，这种模式下不支持室内环境的定位）"
+        }
+      ]
+    },
+    {
+      "ID": "reverseGeoCode",
+      "Name": "反向地图编码",
+      "Description": "实现将经纬度坐标点转换为地址信息的过程。",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "{address:'北京市海淀区上地9街9号',province:'省份名称',city:'城市名称',district:'区县名称',streetName:'街道名称',streetNumber:'街道号码'}",
+      "Paras": [
+        {
+          "ID": "latitude",
+          "Name": "纬度",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "longitude",
+          "Name": "经度",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ]
+}

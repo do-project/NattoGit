@@ -1,0 +1,67 @@
+﻿{
+  "ID": "do_Animator",
+  "IsContainer": "0",
+  "Type": "MM",
+  "Name": "属性动画组合",
+  "Version": "Internal",
+  "Description": "控制UI组件动画的状态变化，每个状态点都支持对应5种属性的变化:x, y, width,height,bgColor；也支持修改透明值alpha，如50表示半透明，若同时用bgColor的后两位和alpha修改了透明值，以alpha为主，若alpha为父容器，则里面的子组件的透明值也随着改变",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Animator/帧动画.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "append",
+      "Name": "创建属性动画",
+      "Description": "创建属性动画",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "duration",
+          "Name": "动画持续时间",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "单位为毫秒"
+        },
+        {
+          "ID": "props",
+          "Name": "动画属性",
+          "Type": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "这是一个JSON node节点，包含多个参数，参数集合如下：{'x':10,'y':50,'height':500...}为空时表示状态不变"
+        },
+        {
+          "ID": "curve",
+          "Name": "动画曲线类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "Linear",
+          "Description": "支持四种情况：1.'EaseInOut'动画启动时候慢，中间快，结束的时候慢、2.'EaseIn'动画启动的时候慢、3.'EaseOut'动画结束的时候慢、4.'Linear'动画速度不变"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

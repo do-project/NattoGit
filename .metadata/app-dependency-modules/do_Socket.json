@@ -1,0 +1,106 @@
+﻿{
+  "ID": "do_Socket",
+  "IsContainer": "0",
+  "Type": "MM",
+  "Name": "Socket请求服务",
+  "Version": "Internal",
+  "Description": "通过Socket建立网络连接，进行通信",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Socket/socket.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "error",
+      "Description": "链接异常",
+      "ReturnType": "Node",
+      "ReturnDesc": "连接成功后断开网络或服务器停止服务时触发，返回错误信息msg"
+    },
+    {
+      "ID": "receive",
+      "Description": "接收数据",
+      "ReturnType": "String",
+      "ReturnDesc": "接收到的16进制数据"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "close",
+      "Name": "关闭连接",
+      "Description": "关闭链接",
+      "ReturnType": "Bool",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "connect",
+      "Name": "连接",
+      "Description": "与socket服务端建立连接",
+      "ReturnType": "Bool",
+      "ReturnDesc": "是否连接成功",
+      "Paras": [
+        {
+          "ID": "ip",
+          "Name": "服务器IP",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "port",
+          "Name": "服务器端口号",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "send",
+      "Name": "发送数据",
+      "Description": "向服务端发送数据",
+      "ReturnType": "Bool",
+      "ReturnDesc": "数据是否发送成功",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "发送数据的格式",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "如果发送的数据是字符串,type指定字符串的编码方式,支持UTF-8,GBK;如果发送的是16进制字符串,type为HEX;如果发送的是文件,type为file"
+        },
+        {
+          "ID": "content",
+          "Name": "发送内容",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "如果发送的是文件，content指定文件的全路径"
+        }
+      ]
+    }
+  ]
+}

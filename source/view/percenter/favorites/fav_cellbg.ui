@@ -1,0 +1,21 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"265",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"FF3900FF",
+				"width":"265",
+				"fontSize":"36",
+				"id":"do_Button_1",
+				"text":"取消收藏",
+				"type":"do_Button",
+				"fontColor":"FFFFFFFF",
+				"height":"205"
+			}
+		],
+		"height":"205"
+	}
+}

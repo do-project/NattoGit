@@ -1,0 +1,31 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFF00",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"dropbg2",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"30",
+				"width":"687",
+				"fontSize":"30",
+				"id":"do_Label_title",
+				"text":"全部",
+				"type":"do_Label",
+				"fontColor":"555555FF",
+				"height":"100"
+			},
+			{
+				"bgColor":"E0E0E0FF",
+				"width":"750",
+				"y":"99",
+				"id":"do_Label_line",
+				"type":"do_Label",
+				"height":"1"
+			}
+		],
+		"height":"100"
+	}
+}

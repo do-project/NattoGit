@@ -1,0 +1,307 @@
+﻿{
+  "ID": "do_BaiduMapView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "百度地图",
+  "Version": "Internal",
+  "Description": "集成百度地图，实现基本的地图功能，包括设置中心点，添加标记等",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_BaiduMapView/百度全景地图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "mapType",
+      "Name": "地图类型",
+      "Type": "String",
+      "DefaultValue": "standard",
+      "EditType": "1",
+      "Group": "",
+      "Description": "地图类型，支持标准地图standard和卫星地图satellite",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "standard",
+            "value": "标准地图"
+          },
+          {
+            "id": "satellite",
+            "value": "卫星地图"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "zoomLevel",
+      "Name": "地图缩放等级",
+      "Type": "Number",
+      "DefaultValue": "10",
+      "EditType": "1",
+      "Group": "",
+      "Description": "地图缩放等级，可以设置级别为 3-18 ,对应地图比例尺20m - 2000公里，具体对应关系可以参考百度地图开发文档",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "touchMap",
+      "Description": "点击地图时触发",
+      "ReturnType": "Node",
+      "ReturnDesc": "返回当前点击的位置坐标{\"latitude\":\"纬度\",\"longitude\":\"经度\"}"
+    },
+    {
+      "ID": "touchMarker",
+      "Description": "点击标记时触发，iOS平台只有第一次点击mark会触发该事件，之后需要点击弹出的缩略图触发",
+      "ReturnType": "Node",
+      "ReturnDesc": "[{\"id\":\"标记ID,用户自定义标记唯一ID\",\"latitude\":\"纬度\",\"longitude\":\"经度\",\"url\":\"缩略图地址\",\"info\":\"描述信息\"}]"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "addMarkers",
+      "Name": "添加一组标记",
+      "Description": "将一组经纬度用缩略图在百度地图标记出来,点击缩略图后弹出描述信息,缩略图地址为 data:// source:// 打头的URI格式，不能包含@符号。其中文件格式说明可参考Storage类",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true 成功 false 失败",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "[{\"id\":\"标记ID,用户自定义标记唯一ID\",\"latitude\":\"纬度\",\"longitude\":\"经度\",\"url\":\"缩略图地址\",\"info\":\"描述信息\"},...]，其中id必须唯一"
+        }
+      ]
+    },
+    {
+      "ID": "addOverlay",
+      "Name": "添加集合图形",
+      "Description": "添加集合图形遮盖物",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "类型",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支持的类型有，0圆形Circle，1折线:Polyline，2多边形:Polygon，3圆弧:Arc"
+        },
+        {
+          "ID": "data",
+          "Name": "参数",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "根据类型传递不同的参数；圆形:需要中心点坐标(经纬度)和半径(单位:米),{\"latitude\":\"39.965\",\"longitude\":\"116.404\",\"radius\":\"10000\"}；折线和多边形:每一个是一个经纬度点,[{\"latitude\":\"39.965\",\"longitude\":\"116.404\"},{\"latitude\":\"39.965\",\"longitude\":\"116.404\"}...]；圆弧:根据指定经纬度生成一段圆弧,指定的经纬度坐标点数组(需传入3个点),每一个是一个经纬度点[{\"latitude\":\"39.965\",\"longitude\":\"116.404\"},{\"latitude\":\"39.965\",\"longitude\":\"116.404\"}]，需要注意的是圆形的情况只有一个点，不是数组"
+        },
+        {
+          "ID": "id",
+          "Name": "几何图形ID",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要添加的集合图形ID"
+        },
+        {
+          "ID": "fillColor",
+          "Name": "图形填充颜色",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "00000000",
+          "Description": "只有闭合图形才有填充颜色"
+        },
+        {
+          "ID": "strokeColor",
+          "Name": "线条描边色",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "000000FF",
+          "Description": ""
+        },
+        {
+          "ID": "width",
+          "Name": "线条宽度",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "5",
+          "Description": ""
+        },
+        {
+          "ID": "isDash",
+          "Name": "是否是虚线",
+          "Type": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "线条是否显示为虚线，android只有折线可以设置为虚线"
+        }
+      ]
+    },
+    {
+      "ID": "getDistance",
+      "Name": "获取实际距离",
+      "Description": "根据地图上两个点的坐标来获取两点之间实际直线距离",
+      "ReturnType": "Number",
+      "ReturnDesc": "返回坐标点之间距离，单位为米",
+      "Paras": [
+        {
+          "ID": "startPoint",
+          "Name": "起点经纬度",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "设置起点经纬度，如39.915174,116.403901表示(纬度,经度)"
+        },
+        {
+          "ID": "endPoint",
+          "Name": "终点坐标",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "设置终点经纬度，如40.915174,117.403901表示(纬度,经度)"
+        }
+      ]
+    },
+    {
+      "ID": "removeAll",
+      "Name": "移除所有标记",
+      "Description": "移除所有标记",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "removeMarker",
+      "Name": "移除一组指定标记",
+      "Description": "移除一组指定标记",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "ids",
+          "Name": "标记ID数组",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要移除的标记ID数组"
+        }
+      ]
+    },
+    {
+      "ID": "removeOverlay",
+      "Name": "移除一组图形集合",
+      "Description": "移除一组图形集合",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "ids",
+          "Name": "集合ID数组",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要移除的几何图形ID数组"
+        }
+      ]
+    },
+    {
+      "ID": "setCenter",
+      "Name": "设置地图中心点",
+      "Description": "设置地图中心点",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true 成功 false 失败",
+      "Paras": [
+        {
+          "ID": "latitude",
+          "Name": "纬度",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "39.915174",
+          "Description": "设置地图中心点纬度，默认是北京天安门坐标纬度"
+        },
+        {
+          "ID": "longitude",
+          "Name": "经度",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "116.403901",
+          "Description": "设置地图中心点经度，默认是北京天安门坐标经度"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "poiSearch",
+      "Name": "搜索服务",
+      "Description": "根据关键词搜索",
+      "ReturnType": "Node",
+      "ReturnDesc": "搜索结果列表,是一个数组,每一项是一个字典,包括{name:'POI名称',pt:'POI坐标',address:'POI地址',city:'POI所在城市',phone:'POI电话号码'}",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "类型",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "搜索类型，是一个枚举值。0:城市POI检索;1:在矩形范围内POI检索;2:根据中心点、半径POI检索;"
+        },
+        {
+          "ID": "keyword",
+          "Name": "关键字",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "搜索的关键字"
+        },
+        {
+          "ID": "param",
+          "Name": "检索参数",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "根据检索类型设置检索参数，当type = 0时，param为{city:''}；当type = 1时，param 为{leftBottom:'39.915174,116.403901(纬度,经度)',rightTop:'39.915174,116.403901(纬度,经度)'}表示矩形区域，左下角和右上角的经纬度坐标点；当type = 2时，param为{location:'39.915174,116.403901(纬度,经度)',radius:''}，其中location为检索的中心点经纬度，radius为周边检索半径，单位为米"
+        },
+        {
+          "ID": "pageIndex",
+          "Name": "分页索引",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "0",
+          "Description": ""
+        },
+        {
+          "ID": "pageSize",
+          "Name": "分页容量",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "10",
+          "Description": ""
+        }
+      ]
+    }
+  ]
+}

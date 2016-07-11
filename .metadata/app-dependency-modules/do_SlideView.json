@@ -1,0 +1,163 @@
+﻿{
+  "ID": "do_SlideView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "滑动视图",
+  "Version": "Internal",
+  "Description": "这个UI组件包含多个子视图(UI文件），实现多个子视图之间左右平缓滑动效果，通过设置looping属性支持无限循环滑动，该组件还支持设置多个不同模板视图",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_SlideView/滑动视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "allowGesture",
+      "Name": "是否支持手势滑动",
+      "Type": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "",
+      "Description": "当属性值为true时，组件可通过手势左右滑动来切换页面；为false时，手势无法滑动，只能通过修改index来切换页面",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "index",
+      "Name": "当前滑动UIView索引",
+      "Type": "Number",
+      "DefaultValue": "0",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置滑动视图索引值，默认为0",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isAllCache",
+      "Name": "是否缓存页面状态",
+      "Type": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "当滑动到下一页面时是否保留上一UIView的状态，为true时表示缓存所有UIView并保留页面状态；为false时表示在当前UIView预加载下一个（如果存在）UIView，并只缓存上一个UIView状态；当数据很多的时候不推荐设置为true",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "looping",
+      "Name": "左右无限滑动",
+      "Type": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "左右无限循环滑动视图，设置值为true表示支持无限循环滑动，默认为false，windows不支持",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "templates",
+      "Name": "显示视图对应UI模板文件",
+      "Type": "Node",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "可以设置一个或多个UI模板文件，值为String类型，多个模板之间分别用“,”分隔，例如：“source://view/temp/t0.ui,source://view/temp/t1.ui”",
+      "Design": {
+        "Type": "Richtext",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "indexChanged",
+      "Description": "滑动显示当前视图后触发该事件",
+      "ReturnType": "String",
+      "ReturnDesc": "返回当前index"
+    },
+    {
+      "ID": "touch",
+      "Description": "点击cell触发",
+      "ReturnType": "Node",
+      "ReturnDesc": "当前cell的index值,如：{'index':1}"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "bindItems",
+      "Name": "绑定视图模板数据",
+      "Description": "绑定数据类型为do_ListData实例",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "refreshItems",
+      "Name": "刷新数据",
+      "Description": "支持动态刷新当前视图显示数据",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "startLoop",
+      "Name": "开始轮播",
+      "Description": "当looping属性为true时，轮播会从右至左按index顺序循环；当looping为false时，顺序轮播完所有index页后再逆序轮播",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "interval",
+          "Name": "间隔时间",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "300",
+          "Description": "轮播间隔时间，单位为毫秒"
+        }
+      ]
+    },
+    {
+      "ID": "stopLoop",
+      "Name": "停止轮播",
+      "Description": "停止轮播",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

@@ -1,0 +1,93 @@
+﻿{
+  "ID": "do_SegmentView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "滑动视图",
+  "Version": "Internal",
+  "Description": "分段选择视图，支持手势滑动和点击选中一个index，通常和do_SlideView结合在一起使用，互相联动；当height=-1时，表示自动宽度，windows不支持",
+  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/D/20160121/do_SegmentView/滑动视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "index",
+      "Name": "当前滑动cell索引",
+      "Type": "Number",
+      "DefaultValue": "0",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置当前滑动cell索引值，默认为0",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "templates",
+      "Name": "cell对应的模板UI文件组",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "一个SegmentView可以有多个cell模板，这个属性是一个json array，每一个元素都是一个source ui文件。这个属性的格式类似如下： source://view/cell1.ui,source://view/cell2.ui,source://view/cell3.ui",
+      "Design": {
+        "Type": "Richtext",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "indexChanged",
+      "Description": "点击cell加载完成后触发",
+      "ReturnType": "String",
+      "ReturnDesc": "返回当前cell的index"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "bindItems",
+      "Name": "绑定item的数据",
+      "Description": "可绑定listData实例",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "refreshItems",
+      "Name": "刷新item数据",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

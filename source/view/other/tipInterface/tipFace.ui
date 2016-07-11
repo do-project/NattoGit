@@ -1,0 +1,32 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"isStretch":"false",
+		"views":[
+			{
+				"x":"290",
+				"width":"164",
+				"y":"106",
+				"id":"do_ImageView_1",
+				"source":"source://image/internetwring.png",
+				"type":"do_ImageView",
+				"cacheType":"always",
+				"height":"164"
+			},
+			{
+				"textAlign":"center",
+				"width":"750",
+				"y":"270",
+				"fontSize":"30",
+				"id":"do_Label_1",
+				"text":"您的网络好像不太好,请稍后再试",
+				"type":"do_Label",
+				"fontColor":"888888FF"
+			}
+		],
+		"height":"360"
+	}
+}

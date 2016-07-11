@@ -1,0 +1,33 @@
+{
+	"RootView":{
+		"bgColor":"F0F0F0FF",
+		"width":"750",
+		"id":"ladings",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"progressWidth":"20",
+				"progressColor":"33C7FFFF",
+				"progressBgColor":"444444AA",
+				"width":"80",
+				"x":"335",
+				"y":"500",
+				"style":"cycle",
+				"id":"do_ProgressBar2_1",
+				"type":"do_ProgressBar2"
+			},
+			{
+				"textAlign":"center",
+				"width":"750",
+				"y":"582",
+				"fontSize":"30",
+				"id":"do_Label_1",
+				"text":"正在努力中",
+				"type":"do_Label",
+				"fontColor":"777777FF",
+				"height":"58"
+			}
+		],
+		"height":"1186"
+	}
+}

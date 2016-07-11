@@ -1,0 +1,199 @@
+﻿{
+  "ID": "do_ImageView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "图片控件",
+  "Version": "Internal",
+  "Description": "图片控件，可以设置图片背景，也可以设置点击事件作为特殊的按钮使用，当不清楚原图大小时可设置宽高为-1，会显示原始大小的宽高",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_ImageView/图片.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "animation",
+      "Name": "动画效果",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "none",
+      "EditType": "1",
+      "Group": "",
+      "Description": "加载图片时的动画效果，支持none没有动画效果和fade淡入淡出效果",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "none",
+            "value": "没有动画效果"
+          },
+          {
+            "id": "fade",
+            "value": "淡入淡出"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "cacheType",
+      "Name": "是否支持网络图片的本地cache",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "never",
+      "EditType": "0",
+      "Group": "",
+      "Description": "只有当imageview的source是http或者https的网络图片时，这个属性才有意义。支持三种缓存方式：；always：表示只读本地缓存，缓存没有的时候从远程读取一次然后就缓存到本地。；never：表示永远不读本地缓存，永远都是读远程图片。；temporay：表示每次打开这个imageview都会先读缓存的本地图片，然后再读服务器的网络图片，然后再缓存到本地,然后再更新到imageview",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "always",
+            "value": "每次都缓存"
+          },
+          {
+            "id": "never",
+            "value": "从不缓存"
+          },
+          {
+            "id": "temporary",
+            "value": "临时缓存"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "defaultImage",
+      "Name": "默认图片",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "支持data://和source://",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "enabled",
+      "Name": "是否可点击",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "false",
+      "EditType": "1",
+      "Group": "",
+      "Description": "缺省为\"false\".控制imageview是否可点击，如果enable为true，则imageview是可以点击的，否则不可点击。",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "radius",
+      "Name": "圆角半径",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "0",
+      "EditType": "0",
+      "Group": "",
+      "Description": "像素值，为0时表示不是圆角图片；当同时设置了border属性，则radius属性失效",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "scale",
+      "Name": "图片显示类型",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "fillxy",
+      "EditType": "0",
+      "Group": "",
+      "Description": "图片显示类型，有以下几种方式,缺省为fillxy；fillxy：拉伸图片（不按比例）以填充View的宽高；center：按原图大小显示图片，但图片宽高大于View的宽高时，截图图片中间部分显示；fillxory：按比例放大原图直至等于某边View的宽高显示；centercrop：当图片大于组件时按图片中心点比例缩小图片，直到图片的宽高大于或等于ImageView组件的宽高时截取图片中间部分显示、当图片小于组件时按比例放大直到填充ImageView的宽或高",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "fillxy",
+            "value": "拉伸填充"
+          },
+          {
+            "id": "center",
+            "value": "原图大小"
+          },
+          {
+            "id": "fillxory",
+            "value": "缩放宽或高"
+          },
+          {
+            "id": "centercrop",
+            "value": "居中裁剪"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "source",
+      "Name": "图片路径",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "可设置网络或本地文件，支持：http:// https:// data:// source:// 打头的URI格式，不能包含@符号。其中文件格式说明可参考Storage类",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "touch",
+      "Description": "点击触发这个事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": ""
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "setBitmap",
+      "Name": "绑定bitmap对象",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "bitmap",
+          "Name": "bitmap对象",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

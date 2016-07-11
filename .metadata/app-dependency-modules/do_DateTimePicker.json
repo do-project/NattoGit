@@ -1,0 +1,91 @@
+﻿{
+  "ID": "do_DateTimePicker",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "日期,时间选择控件",
+  "Version": "Internal",
+  "Description": "弹出时间，日期选择窗口来选择时间，时间格式都是long型时间戳格式，windows平台不支持long型",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_DateTimePicker/日期.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "show",
+      "Name": "弹出选择日期，时间，或日期时间窗口",
+      "Description": "",
+      "ReturnType": "Node",
+      "ReturnDesc": "{\"flag\":0,\"time\":\"2312412343\"}，flag =0 表示点击了第一个按钮，flag = 1 表示点击了第二个按钮...，time表示long型时间",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "打开窗口的类型",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "0表示日期及时间，1表示只有日期，2表示只有时间，3表示日期、星期及时间"
+        },
+        {
+          "ID": "data",
+          "Name": "预设置的日期",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "long型时间，缺失值是当前日期时间long型"
+        },
+        {
+          "ID": "maxDate",
+          "Name": "最大日期",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "4102329600000",
+          "Description": "long型时间，缺省值是2099年对应的long型"
+        },
+        {
+          "ID": "minDate",
+          "Name": "最小日期",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "0",
+          "Description": "long型时间，最小日期不能大于最大日期，缺省值是1970年对应的long型"
+        },
+        {
+          "ID": "title",
+          "Name": "窗口的标题",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "日期时间选择",
+          "Description": "缺省值是‘时间选择’或者‘日期选择’或者‘日期时间选择’，根据type来区分"
+        },
+        {
+          "ID": "buttons",
+          "Name": "button集合",
+          "Type": "Node",
+          "Required": 0,
+          "DefaultValue": "[\"取消\",\"确定\"]",
+          "Description": "为空或不设值不显示按钮，显示缺省值，如果设值为[]，则不显示按钮"
+        }
+      ]
+    }
+  ]
+}

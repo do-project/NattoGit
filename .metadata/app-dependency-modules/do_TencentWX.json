@@ -1,0 +1,198 @@
+﻿{
+  "ID": "do_TencentWX",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "微信登陆",
+  "Version": "Internal",
+  "Description": "接入微信开放平台，可使用微信登录、分享和支付功能",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_TencentWX/微信呢.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "isWXAppInstalled",
+      "Name": "微信APP是否安装",
+      "Description": "判断当前设备中是否安装微信APP",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true 安装，false 没有安装",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "login",
+      "Name": "微信登录",
+      "Description": "使用微信登录获取用户登录的信息",
+      "ReturnType": "Node",
+      "ReturnDesc": "用户点击授权后，微信客户端会被调起，跳转至授权界面，用户在该界面点击允许或取消，返回数据给调用方。返回\r\nErrCode\tERR_OK = 0(用户同意)\r\nERR_AUTH_DENIED = -4（用户拒绝授权）\r\nERR_USER_CANCEL = -2（用户取消）\r\ncode\t用户换取access_token的code，仅在ErrCode为0时有效\r\nstate\t第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用sendReq时传入，由微信终端回传，state字符串长度不能超过1K\r\nlang\t微信客户端当前语言\r\ncountry\t微信用户当前国家信息",
+      "Paras": [
+        {
+          "ID": "appId",
+          "Name": "appId",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "在微信开发平台申请的appId"
+        }
+      ]
+    },
+    {
+      "ID": "pay",
+      "Name": "微信支付",
+      "Description": "调用微信支付",
+      "ReturnType": "Number",
+      "ReturnDesc": "0 支付完成,-1 错误,-2 用户取消",
+      "Paras": [
+        {
+          "ID": "appId",
+          "Name": "应用ID",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "在微信开放平台创建应用后，分配的appid"
+        },
+        {
+          "ID": "partnerId",
+          "Name": "商户号",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "微信支付分配的商户号"
+        },
+        {
+          "ID": "prepayId",
+          "Name": "预支付交易会话ID",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商户服务器返回的的预支付交易会话ID,长度为32个字符"
+        },
+        {
+          "ID": "package",
+          "Name": "扩展字段",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商户服务器返回的扩展字段,长度不超过128个字符"
+        },
+        {
+          "ID": "nonceStr",
+          "Name": "随机字符串",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商户服务器返回的随机字符串，长度不能超过32个字符"
+        },
+        {
+          "ID": "timeStamp",
+          "Name": "时间戳",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商户服务器返回的时间戳,长度为10个字符"
+        },
+        {
+          "ID": "sign",
+          "Name": "签名",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "商户服务器返回的签名,长度为32个字符"
+        }
+      ]
+    },
+    {
+      "ID": "share",
+      "Name": "微信分享",
+      "Description": "微信分享",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true 分享成功，false 分享失败",
+      "Paras": [
+        {
+          "ID": "appId",
+          "Name": "appId",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "在微信开放平台申请的appId"
+        },
+        {
+          "ID": "scene",
+          "Name": "分享场景",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "0",
+          "Description": "0：分享到微信好友；1：分享到微信朋友圈"
+        },
+        {
+          "ID": "type",
+          "Name": "分享的类型",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "0",
+          "Description": "0：默认，图文分享；1：纯图分享，只支持本地图片；2：音乐分享"
+        },
+        {
+          "ID": "title",
+          "Name": "标题",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "分享的标题"
+        },
+        {
+          "ID": "content",
+          "Name": "分享文本内容",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "分享的文本内容,图文分享时不能为空"
+        },
+        {
+          "ID": "url",
+          "Name": "目标地址",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "分享后点击文本打开的地址"
+        },
+        {
+          "ID": "image",
+          "Name": "图片地址",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "分享后显示的图片，纯图分享时候不能为空"
+        },
+        {
+          "ID": "audio",
+          "Name": "音乐文件的远程链接",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "音乐文件的远程链接, 以URL的形式传入, 不支持本地音乐"
+        }
+      ]
+    }
+  ]
+}

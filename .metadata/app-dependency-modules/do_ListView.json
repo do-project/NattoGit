@@ -1,0 +1,276 @@
+﻿{
+  "ID": "do_ListView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "List视图",
+  "Version": "Internal",
+  "Description": "List视图是最常用的UI组件，由很多个Cell组成。它可以通过bind一个ListData来构造视图的数据Model，修改数据来更新视图。android平台不支持在cell中放TextFiled、TextBox组件",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_ListView/list列表视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "bounces",
+      "Name": "反弹效果",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "true",
+      "EditType": "1",
+      "Group": "",
+      "Description": "只支持iOS平台，为false时没有上拉下拉的反弹效果",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "canScrollToTop",
+      "Name": "是否滚动到屏幕顶部",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "UI",
+      "Description": "属性设置成true时可以通过点击手机状态栏返回内容的顶部；仅支持iOS平台",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "footerView",
+      "Name": "底部视图",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "设置要显示的表头视图地址，不填但isFooterVisible为true时有缺省样式",
+      "Design": {
+        "Type": "FileSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "headerView",
+      "Name": "表头视图",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "设置要显示的表头视图地址，不填但isHeaderVisible为true时有缺省样式",
+      "Design": {
+        "Type": "FileSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isFooterVisible",
+      "Name": "是否显示footerview",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "缺省false不显示",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isHeaderVisible",
+      "Name": "是否显示headerview",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "缺省false不显示",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isShowbar",
+      "Name": "是否支持显示滚动条效果",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "",
+      "Description": "为true的时候，当listview内容超出listview的边界，会出现滚动条标识。",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "selectedColor",
+      "Name": "Cell选中的背景颜色",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "ffffff00",
+      "EditType": "0",
+      "Group": "",
+      "Description": "",
+      "Design": {
+        "Type": "Color",
+        "Data": []
+      }
+    },
+    {
+      "ID": "templates",
+      "Name": "Cell对应的模板UI文件组",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "一个ListView可以有多个cell模板，这个属性是一个json array，每一个元素都是一个source ui文件。这个属性的格式类似如下： source://view/cell1.ui,source://view/cell2.ui,source://view/cell3.ui",
+      "Design": {
+        "Type": "Richtext",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "longTouch",
+      "Description": "长按cell触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "当前cell的position值"
+    },
+    {
+      "ID": "longTouch1",
+      "Description": "长按cell触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "当前cell的position值和在当前cell的绝对位置y"
+    },
+    {
+      "ID": "pull",
+      "Description": "下拉headerview事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "返回{state,offset}，其中state表示headerview的状态，offset为headerview下拉的位移量；其中state=0：表示开始下拉headerview，在headerview下拉到headerview复位整个过程中，pull事件会触发很多次；state=1：表示下拉headerview超过headerview的高度，触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui；state=2：下拉超过一定值，触发state=1事件后，松手会触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui，然后开始加载数据，数据加载完后需要调用rebound方法让header复位"
+    },
+    {
+      "ID": "push",
+      "Description": "上拉footerview事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "返回{state,offset}，其中state表示headerview的状态，offset为footerview上拉的位移量；state=0,表示一直上拉，当listview的content到listview的底部，从0开始到footerview复位，会多次触发这个事件；state=1，如果超过footerview的高度，这个事件只触发一次，前端接受到这个事件会更新footview的ui；state=2，如果超过footview的高度并松手，这个事件只触发一次，前端接受到这个事件会更新footview的ui，并开始加载数据，加载完后前端开发者需插入新的数据，并调用rebound复位footerview"
+    },
+    {
+      "ID": "scroll",
+      "Description": "滑动事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "iOS和Android平台返回{firstVisiblePosition,lastVisiblePosition}，其中firstVisiblePosition表示在组件高度范围内第一个可见cell的位置，lastVisiblePosition表示在组件高度范围内最后一个可见cell的位置；windows平台返回offset表示滚动的位移"
+    },
+    {
+      "ID": "touch",
+      "Description": "点击cell触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "当前cell的position值"
+    },
+    {
+      "ID": "touch1",
+      "Description": "点击cell触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "当前cell的position值和在当前cell的绝对位置y"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "bindItems",
+      "Name": "绑定item的数据",
+      "Description": "可绑定listData实例",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "rebound",
+      "Name": "复位",
+      "Description": "headerview或footerview复位，通常下拉或上拉刷新后处理数据后需要调用这个方法恢复状态",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "refreshItems",
+      "Name": "刷新item数据",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "scrollToPosition",
+      "Name": "平滑地滚动到特定位置",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "position",
+          "Name": "位置",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "0",
+          "Description": "表示listview的第几行，从0开始计数，缺省值是 0"
+        },
+        {
+          "ID": "isSmooth",
+          "Name": "是否有滚动效果",
+          "Type": "Bool",
+          "Type_JavaScript": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "缺省是false表示直接跳转到某一行，没有任何平滑过渡的效果。为true表示平滑到那一行；其中为false的时候是不会触发scroll事件的，为true会触发；windows不支持该效果"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

@@ -1,0 +1,118 @@
+﻿{
+  "ID": "do_DataCache",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "数据缓存",
+  "Version": "Internal",
+  "Description": "缓存一些数据到本地文件，即使程序退出再进入还能获取到值，要确保设置的value值不要过大",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_DataCache/缓存管理.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "hasData",
+      "Name": "是否有数据",
+      "Description": "判断是否有数据",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true有数据，false没有",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "loadData",
+      "Name": "读数据",
+      "Description": "把数据从缓存取出",
+      "ReturnType": "String",
+      "ReturnDesc": "返回读取的数据值",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "removeAll",
+      "Name": "删除全部数据",
+      "Description": "",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true为成功，false为失败",
+      "Paras": []
+    },
+    {
+      "ID": "removeData",
+      "Name": "删除数据",
+      "Description": "清楚某个key的数据",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明删除是否成功",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "saveData",
+      "Name": "写数据",
+      "Description": "把数据写入缓存",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明写数据是否成功",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "value",
+          "Name": "",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

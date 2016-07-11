@@ -1,0 +1,17 @@
+[
+	{
+		"template":0,
+		"SIMGS" : "source://image/wifi.png",
+		"SLABT" : "WIFI"
+	},
+	{
+		"template":0,
+		"SIMGS" : "source://image/tingchewei.png",
+		"SLABT" : "停车位"
+	},
+	{
+		"template":0,
+		"SIMGS" : "source://image/KTVBX.png",
+		"SLABT" : "KTV包厢"
+	}
+]

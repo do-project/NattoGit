@@ -1,0 +1,98 @@
+﻿{
+  "ID": "do_Timer",
+  "IsContainer": "0",
+  "Type": "MM",
+  "Name": "定时器",
+  "Version": "Internal",
+  "Description": "定时器，功能是在指定的时间间隔内反复触发指定任务事件",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Timer/timer.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "delay",
+      "Name": "延时启动时间",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "从现在起延迟多长时间开始启动，单位为毫秒",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "interval",
+      "Name": "间隔时间",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "1000",
+      "EditType": "1",
+      "Group": "",
+      "Description": "定时器将每隔指定豪秒时间触发一次事件,单位毫秒，默认为1000",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "tick",
+      "Description": "固定间隔被调用触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": ""
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "isStart",
+      "Name": "是否启动定时器",
+      "Description": "判断定时器是否启动，返回当前状态",
+      "ReturnType": "Bool",
+      "ReturnType_JavaScript": "Bool",
+      "ReturnDesc": "为true时定时器为启动状态，false时定时器为未启动状态",
+      "Paras": []
+    },
+    {
+      "ID": "start",
+      "Name": "启动",
+      "Description": "启动定时器",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "stop",
+      "Name": "取消",
+      "Description": "取消定时器",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

@@ -1,0 +1,76 @@
+﻿{
+  "ID": "do_QRCode",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "二维码",
+  "Version": "Internal",
+  "Description": "二维码的生成和识别；其中iOS平台的二维码识别功能系统需要iOS8级以上的系统，设备需要5S及以上产品",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_QRCode/QR二维码.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "8"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "create",
+      "Name": "生成二维码",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "生成的二维码图片会保存在data://temp/do_QRCode目录下，并返回生成的二维码图片的路径",
+      "Paras": [
+        {
+          "ID": "text",
+          "Name": "内容文本",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "length",
+          "Name": "图片边长",
+          "Type": "Number",
+          "Required": 0,
+          "DefaultValue": "500",
+          "Description": "生成的二维码图片边长"
+        }
+      ]
+    },
+    {
+      "ID": "recognition",
+      "Name": "识别二维码",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "返回二维码的文本内容",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "二维码图片路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "可设置html链接或本地文件，支持：http:// https:// data:// source:// 打头的URI格式，不能包含@符号。其中文件格式说明可参考Storage类"
+        }
+      ]
+    }
+  ]
+}

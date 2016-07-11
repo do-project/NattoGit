@@ -1,0 +1,301 @@
+﻿{
+  "ID": "do_Algorithm",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "常用算法",
+  "Version": "Internal",
+  "Description": "包含一些常用的算法实现，包括md5算法、3DES算法、sha1安全哈希算法和Base64算法",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Algorithm/算法.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "base64Sync",
+      "Name": "Base64算法",
+      "Description": "同步的Base64算法，只支持字符串的处理",
+      "ReturnType": "String",
+      "ReturnDesc": "返回base64后的值",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "base64类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "encode",
+          "Description": "目前支持两种类型，'encode'为编码、'decode'为解码"
+        },
+        {
+          "ID": "source",
+          "Name": "需要base64的源数据",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "des3Sync",
+      "Name": "3DES算法",
+      "Description": "windows平台不支持",
+      "ReturnType": "String",
+      "ReturnDesc": "返回des3后的值",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "des3秘钥",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "3DES算法的key值"
+        },
+        {
+          "ID": "type",
+          "Name": "des3类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "encrypt",
+          "Description": "目前支持两种类型，'encrypt'为加密、'decrypt'为解密"
+        },
+        {
+          "ID": "source",
+          "Name": "需要des3的源数据",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "md5Sync",
+      "Name": "md5算法",
+      "Description": "同步md5算法，只支持字符串的处理",
+      "ReturnType": "String",
+      "ReturnDesc": "返回md5后的值，使用的是32位小写加密方式",
+      "Paras": [
+        {
+          "ID": "value",
+          "Name": "需要md5的数据值",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "sha1Sync",
+      "Name": "安全哈希算法",
+      "Description": "主要适用于数字签名标准",
+      "ReturnType": "String",
+      "ReturnDesc": "返回SHA1加密后的值",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "需要SHA1的数据类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "lowercase",
+          "Description": "目前支持两种类型，'uppercase'为加密后返回大写字母、'lowercase'为加密后返回小写字母"
+        },
+        {
+          "ID": "value",
+          "Name": "需要SHA1的数据值",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "base64",
+      "Name": "Base64算法",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "返回base64后的值",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "base64类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "encode",
+          "Description": "目前支持两种类型，'encode'为编码、'decode'为解码"
+        },
+        {
+          "ID": "sourceType",
+          "Name": "需要base64的数据类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "string",
+          "Description": "支持两种'string':字符串类型、 'file'：文件类型,如果是file类型的话，encode是把一个file读出内容编码为base64字符串，如果是decode的时候是把一个base64字符串解码为一个data://temp/随机名字的文件"
+        },
+        {
+          "ID": "source",
+          "Name": "需要base64的源数据",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "des3",
+      "Name": "3DES算法",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "返回des3后的值",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "des3秘钥",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "3DES算法的key值"
+        },
+        {
+          "ID": "type",
+          "Name": "des3类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "encrypt",
+          "Description": "目前支持两种类型，'encrypt'为加密、'decrypt'为解密"
+        },
+        {
+          "ID": "source",
+          "Name": "需要des3的源数据",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "hex2Binary",
+      "Name": "十六进制转二进制",
+      "Description": "把十六进制数据转换成二进制并保存成文件放在指定目录下",
+      "ReturnType": "Bool",
+      "ReturnDesc": "返回转换是否成功，true为成功，false失败",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "十六进制数据",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "用十六进制字符串表示的数据"
+        },
+        {
+          "ID": "path",
+          "Name": "目标路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要保存的二进制文件全路径,支持data://"
+        }
+      ]
+    },
+    {
+      "ID": "hex2Str",
+      "Name": "十六进制转字符串",
+      "Description": "把十六进制数据按特定编码格式转成字符串",
+      "ReturnType": "String",
+      "ReturnDesc": "返回转换之后的字符串",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "十六进制数据",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "用十六进制字符串表示的数据"
+        },
+        {
+          "ID": "encoding",
+          "Name": "编码格式",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "utf-8",
+          "Description": "指定编码格式，默认使用utf-8格式"
+        }
+      ]
+    },
+    {
+      "ID": "md5",
+      "Name": "md5算法",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnDesc": "返回md5后的值，使用的是32位小写加密方式",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "需要md5的数据类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "string",
+          "Description": "目前支持两种类型，'string'为字符串类型、'file'为文件类型"
+        },
+        {
+          "ID": "value",
+          "Name": "需要md5的数据值",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "如果type为'string'类型，是一个字符串的值；如果为'file'类型，这就是一个文件的路径，只支持data://数据区目录"
+        }
+      ]
+    },
+    {
+      "ID": "sha1",
+      "Name": "安全哈希算法",
+      "Description": "主要适用于数字签名标准",
+      "ReturnType": "String",
+      "ReturnDesc": "返回SHA1加密后的值",
+      "Paras": [
+        {
+          "ID": "type",
+          "Name": "需要SHA1的数据类型",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "lowercase",
+          "Description": "目前支持两种类型，'uppercase'为加密后返回大写字母、'lowercase'为加密后返回小写字母"
+        },
+        {
+          "ID": "value",
+          "Name": "需要SHA1的数据值",
+          "Type": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ]
+}

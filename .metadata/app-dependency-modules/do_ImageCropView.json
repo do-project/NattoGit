@@ -1,0 +1,69 @@
+﻿{
+  "ID": "do_ImageCropView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "图片裁剪视图",
+  "Version": "Internal",
+  "Description": "图片裁剪视图，能设置view的基本属性，宽高等",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_ImageCropView/裁剪图片视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "cropArea",
+      "Name": "裁剪的区域",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置裁剪区域的宽高，width,height，中间用逗号隔开；裁剪区域不建议设置超出组件本身宽高和范围；默认值取控件的一半宽高，居中显示",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "source",
+      "Name": "图片路径",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "可设置本地文件，支持 data:// source:// 打头",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": [
+    {
+      "ID": "crop",
+      "Name": "裁剪图片",
+      "Description": "根据裁剪区域，裁剪图片",
+      "ReturnType": "String",
+      "ReturnDesc": "返回裁剪图片的路径",
+      "Paras": []
+    }
+  ]
+}

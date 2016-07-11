@@ -1,0 +1,168 @@
+﻿{
+  "ID": "do_HashData",
+  "IsContainer": "0",
+  "Type": "MM",
+  "Name": "hash数据源",
+  "Version": "Internal",
+  "Description": "HashData作为一个内存数据源，可以给UIModule作为bind的数据源。可以参考UIModule的bind方法。也可以作为ListView，GridView的数据集。它本质上是一个可变key-value键值对，可以增删改查",
+  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/R/20150723/3fe370f4-355a-4a09-b5d2-a96413991ac9.png",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "addData",
+      "Name": "增加数据",
+      "Description": "向数据集添加数据",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "要插入的数据"
+        }
+      ]
+    },
+    {
+      "ID": "addOne",
+      "Name": "增加一条数据",
+      "Description": "向数据集添加一条数据",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "key",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "value",
+          "Name": "value",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "getAll",
+      "Name": "获取全部数据",
+      "Description": "获取全部数据，若没找到返回null",
+      "ReturnType": "Node",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "getCount",
+      "Name": "获取元素个数",
+      "Description": "",
+      "ReturnType": "Number",
+      "ReturnDesc": "元素个数",
+      "Paras": []
+    },
+    {
+      "ID": "getData",
+      "Name": "获取数据",
+      "Description": "根据keys获取多条数据，若没找到返回null",
+      "ReturnType": "Node",
+      "ReturnDesc": "返回对应的value集合",
+      "Paras": [
+        {
+          "ID": "keys",
+          "Name": "key集合",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "getOne",
+      "Name": "获取某一行数据",
+      "Description": "根据key获取对应值，若没找到返回null",
+      "ReturnType": "String",
+      "ReturnDesc": "value值",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "key",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "removeAll",
+      "Name": "清空数据",
+      "Description": "清除所有数据",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "removeData",
+      "Name": "根据keys删除多条数据",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "keys",
+          "Name": "key集合",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "removeOne",
+      "Name": "删除某一行数据",
+      "Description": "根据key删除特定行数据",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "key",
+          "Name": "key",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

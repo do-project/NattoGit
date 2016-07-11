@@ -1,0 +1,66 @@
+﻿{
+  "ID": "do_ImageBrowser",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "图片预览",
+  "Version": "Internal",
+  "Description": "这个组件用于浏览大量网络或本地图片，图片路径可以http://链接或本地data://，支持放大后缩放原图，多图片支持左右滑动预览，进入浏览界面单击一下屏幕退出",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_ImageBrowser/图片预览.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "longTouch",
+      "Description": "长按预览图片触发",
+      "ReturnType": "Node",
+      "ReturnDesc": "当前图片的index值和图片的source，如['index':'','source':'']"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "show",
+      "Name": "预览",
+      "Description": "打开预览，图片底部显示当前图片索引和总图片数",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "预览图片传递数据结构[{ source : '', init : ''},{source :'' , init : ''}, ..... ]其中source 为网络原图，init为缩略图"
+        },
+        {
+          "ID": "index",
+          "Name": "",
+          "Type": "Number",
+          "Required": 1,
+          "DefaultValue": "0",
+          "Description": "设置当前预览图片索引值，默认为0"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

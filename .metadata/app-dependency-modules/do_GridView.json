@@ -1,0 +1,241 @@
+﻿{
+  "ID": "do_GridView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "Grid视图",
+  "Version": "Internal",
+  "Description": "GridView是一个二维网格滚动视图，可将数据源中的一条数据显示为表格中的一个cell",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_GridView/Gridview视图.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "canScrollToTop",
+      "Name": "是否滚动到屏幕顶部",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "UI",
+      "Description": "属性设置成true时可以通过点击手机状态栏返回内容的顶部；仅支持iOS平台",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "headerView",
+      "Name": "表头视图",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "设置要显示的表头视图地址，不填但isHeaderVisible为true时有缺省样式",
+      "Design": {
+        "Type": "FileSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "hSpacing",
+      "Name": "两列之间的间距",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "两列之间的间距，单位为px",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isHeaderVisible",
+      "Name": "是否显示headerview",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "false",
+      "EditType": "0",
+      "Group": "",
+      "Description": "缺省false不显示",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "isShowbar",
+      "Name": "是否支持显示滚动条效果",
+      "Type": "Bool",
+      "Type_JavaScript": "Bool",
+      "DefaultValue": "true",
+      "EditType": "0",
+      "Group": "",
+      "Description": "为true的时候，当数据内容超出gridview的边界，会出现滚动条标识",
+      "Design": {
+        "Type": "Boolean",
+        "Data": []
+      }
+    },
+    {
+      "ID": "numColumns",
+      "Name": "GridView对应的列数",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "1",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置这个GridView显示多少列，-1 表示自动适应",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    },
+    {
+      "ID": "selectedColor",
+      "Name": "cell选中的背景颜色",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "",
+      "Design": {
+        "Type": "Color",
+        "Data": []
+      }
+    },
+    {
+      "ID": "templates",
+      "Name": "显示视图对应UI模板文件",
+      "Type": "Node",
+      "Type_JavaScript": "Node",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "一个GridView可以有多个cell模板，这个属性是一个json array，每一个元素都是一个source ui文件，这些ui文件没有自己的逻辑代码，和gridview所在的page共用一个脚本环境。\r\n这个属性的格式类似如下：\r\n[\"source://view/cell1.ui\",\"source://view/cell2.ui\",\"source://view/cell3.ui]；多模版的大小需要一致",
+      "Design": {
+        "Type": "Richtext",
+        "Data": []
+      }
+    },
+    {
+      "ID": "vSpacing",
+      "Name": "两行之间的间距",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "",
+      "EditType": "0",
+      "Group": "",
+      "Description": "两行之间的间距，单位为px",
+      "Design": {
+        "Type": "UInteger",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "longTouch",
+      "Description": "长按cell触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "当前cell的position值"
+    },
+    {
+      "ID": "longTouch1",
+      "Description": "长按cell触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "当前cell的position值和在当前cell的绝对位置x,y，如{'position':'2','x':'0','y':'30'}"
+    },
+    {
+      "ID": "pull",
+      "Description": "下拉headerview事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "返回{state,offset}，其中state表示headerview的状态，offset为headerview下拉的位移量；其中state=0：表示开始下拉headerview，在headerview下拉到headerview复位整个过程中，pull事件会触发很多次；state=1：表示下拉headerview超过headerview的高度，触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui；state=2：下拉超过一定值，触发state=1事件后，松手会触发一次这个事件，前端开发者接受到这个事件会更新headerview的ui，然后开始加载数据，数据加载完后需要调用rebound方法让header复位"
+    },
+    {
+      "ID": "scroll",
+      "Description": "滑动事件",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "iOS和Android平台返回{firstVisiblePosition,lastVisiblePosition}，其中firstVisiblePosition表示在组件高度范围内第一行可见cell的位置，lastVisiblePosition表示在组件高度范围内最后一行可见cell的位置；windows平台返回offset表示滚动的位移"
+    },
+    {
+      "ID": "touch",
+      "Description": "点击cell触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "当前cell的position值"
+    },
+    {
+      "ID": "touch1",
+      "Description": "点击cell触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "当前cell的position值和在当前cell的绝对位置x,y，如{'position':'2','x':'0','y':'30'}"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "bindItems",
+      "Name": "绑定item的数据",
+      "Description": "可绑定listData实例",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "数据",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": ""
+        }
+      ]
+    },
+    {
+      "ID": "rebound",
+      "Name": "复位",
+      "Description": "headerview复位，通常下拉刷新后处理数据后需要调用这个方法恢复状态",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "refreshItems",
+      "Name": "刷新item数据",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

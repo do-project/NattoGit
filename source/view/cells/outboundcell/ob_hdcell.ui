@@ -1,0 +1,30 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"580",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"60",
+				"width":"520",
+				"fontSize":"28",
+				"id":"do_Label_1",
+				"text":"满30元立减1元(在线支付专享)",
+				"type":"do_Label",
+				"fontColor":"666666FF",
+				"height":"60"
+			},
+			{
+				"width":"35",
+				"y":"13",
+				"id":"do_ImageView_1",
+				"source":"http://img10.360buyimg.com/n0/g13/M0A/08/09/rBEhUlKXEL4IAAAAAAHzuLsqVjwAAGFeQDR6gUAAfPQ282.jpg",
+				"type":"do_ImageView",
+				"cacheType":"always",
+				"height":"35"
+			}
+		],
+		"height":"60"
+	}
+}

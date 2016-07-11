@@ -1,0 +1,77 @@
+﻿{
+  "ID": "do_ProgressBar",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "进度条",
+  "Version": "Internal",
+  "Description": "可以设置基于值填充的进度条和显示重复模式的进度条",
+  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/D/20160121/do_ProgressBar/进度条progress.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "14"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "progress",
+      "Name": "进度值",
+      "Type": "Number",
+      "DefaultValue": "无",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置进度值,取值范围是0-100的Number(style=horizontal有效)",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "style",
+      "Name": "进度条样式",
+      "Type": "String",
+      "DefaultValue": "normal",
+      "EditType": "0",
+      "Group": "",
+      "Description": "进度条样式可以是以下几种类型：horizontal,large,small,normal",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "horizontal",
+            "value": "水平"
+          },
+          {
+            "id": "large",
+            "value": "大"
+          },
+          {
+            "id": "small",
+            "value": "小"
+          },
+          {
+            "id": "normal",
+            "value": "普通"
+          }
+        ]
+      }
+    }
+  ],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": []
+}

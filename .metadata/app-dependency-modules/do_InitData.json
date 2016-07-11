@@ -1,0 +1,262 @@
+﻿{
+  "ID": "do_InitData",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "只读目录区文件管理类",
+  "Version": "Internal",
+  "Description": "DeviceOne定义了自己的文件URI，用户可以利用InitData类来处理initdata://开头的只读目录区文件，目前暂时不支持中文目录和中文文件名",
+  "Icon": "",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "dirExist",
+      "Name": "判断目录是否存在",
+      "Description": "判断指定目录是否存在",
+      "ReturnType": "Bool",
+      "ReturnDesc": "返回true为存在，false为不存在",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "目录路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是initdata://打头"
+        }
+      ]
+    },
+    {
+      "ID": "fileExist",
+      "Name": "判断文件是否存在",
+      "Description": "判断指定文件是否存在",
+      "ReturnType": "Bool",
+      "ReturnDesc": "返回true为存在，false为不存在",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "文件路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是initdata://打头"
+        }
+      ]
+    },
+    {
+      "ID": "readFileSync",
+      "Name": "读取文件内容",
+      "Description": "获取指定文件的内容的同步方法；使用需谨慎，若读取的数据较多会导致UI卡顿",
+      "ReturnType": "String",
+      "ReturnDesc": "返回读取到的指定文件的内容",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "文件路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "文件名，只能是initdata://打头"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "copy",
+      "Name": "拷贝文件",
+      "Description": "将指定的一个或多个文件拷贝到一个目录下",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明拷贝是否成功",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "拷贝文件名",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "可支持单独拷贝一个文件，或好几个文件同时拷贝，只能是initdata://打头"
+        },
+        {
+          "ID": "target",
+          "Name": "目标路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "拷贝的路径，只能是data://打头"
+        }
+      ]
+    },
+    {
+      "ID": "copyFile",
+      "Name": "拷贝文件",
+      "Description": "拷贝指定文件",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明拷贝是否成功",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "拷贝源文件",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只支持单独拷贝一个文件，需要为全路径，只能是initdata://打头"
+        },
+        {
+          "ID": "target",
+          "Name": "目标文件",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "拷贝后的目标文件，需要为全路径，只能是data://打头"
+        }
+      ]
+    },
+    {
+      "ID": "getDirs",
+      "Name": "获取目录列表",
+      "Description": "获取指定目录下所有目录列表",
+      "ReturnType": "Node",
+      "ReturnDesc": "返回是一个JSON Array，里面是文件目录的列表，比如[\"1\",\"2\",...]直接返回path下的目录路径",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "目录路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是initdata://打头"
+        }
+      ]
+    },
+    {
+      "ID": "getFiles",
+      "Name": "获取文件列表",
+      "Description": "获取指定目录下所有文件列表",
+      "ReturnType": "Node",
+      "ReturnDesc": "返回是一个JSON Array，里面是文件名的列表，比如[\"1.txt\",\"2.png\",...]直接返回path下的文件路径",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "目录路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是initdata://打头"
+        }
+      ]
+    },
+    {
+      "ID": "readFile",
+      "Name": "读取文件内容",
+      "Description": "获取指定文件的内容",
+      "ReturnType": "String",
+      "ReturnDesc": "返回读取到的指定文件的内容",
+      "Paras": [
+        {
+          "ID": "path",
+          "Name": "文件路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "文件名，只能是initdata://打头"
+        }
+      ]
+    },
+    {
+      "ID": "unzip",
+      "Name": "解压缩文件",
+      "Description": "将指定的zip文件解压到指定的路径",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明解压缩是否成功",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "解压缩文件名",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "解压压缩文件名，只能是initdata://打头"
+        },
+        {
+          "ID": "target",
+          "Name": "解压后目录路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是data://打头"
+        }
+      ]
+    },
+    {
+      "ID": "zip",
+      "Name": "压缩文件或目录",
+      "Description": "将指定的路径或文件压缩成zip文件",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明压缩是否成功",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "目录路径或文件名",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "只能是initdata://打头"
+        },
+        {
+          "ID": "target",
+          "Name": "压缩后文件名",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "压缩后文件名，需要具体指定到文件名，只能是data://打头"
+        }
+      ]
+    },
+    {
+      "ID": "zipFiles",
+      "Name": "压缩多个文件",
+      "Description": "将指定的一个或多个文件压缩成zip文件",
+      "ReturnType": "Bool",
+      "ReturnDesc": "true/false表明压缩是否成功",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "文件名",
+          "Type": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "可支持压缩不在同一目录下的文件，只需指定文件路径，只能是initdata://打头"
+        },
+        {
+          "ID": "target",
+          "Name": "压缩后文件名",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "压缩后文件名，需要具体指定到文件名，只能是data://打头"
+        }
+      ]
+    }
+  ]
+}

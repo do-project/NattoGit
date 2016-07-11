@@ -1,0 +1,73 @@
+﻿{
+  "ID": "do_Network",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "网络状态类",
+  "Version": "Internal",
+  "Description": "能获取当前手机端的网络状态,监听网络状态的变化",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Network/network.jpg",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "10"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "changed",
+      "Description": "网络状态发生变化的回调方法",
+      "ReturnType": "String",
+      "ReturnDesc": "返回以下枚举类型的一种：'wifi'-wifi网络，'2G/3G/4G'-2G、3G或者4G，'none'-没有网络连接，'unknown'-未知网络连接"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "getIP",
+      "Name": "获取移动终端ip地址",
+      "Description": "获取当前的ip地址",
+      "ReturnType": "String",
+      "ReturnDesc": "当前的ip地址",
+      "Paras": []
+    },
+    {
+      "ID": "getMACAddress",
+      "Name": "获取物理地址",
+      "Description": "当前设备的物理地址",
+      "ReturnType": "String",
+      "ReturnDesc": "返回当前设备的物理地址，windows平台返回的地址与直接在手机上查看的不一致，但也表示的是唯一地址；iOS平台不支持",
+      "Paras": []
+    },
+    {
+      "ID": "getStatus",
+      "Name": "获取当前网络状态",
+      "Description": "获取手机端当前处于的网络环境",
+      "ReturnType": "String",
+      "ReturnDesc": "以下枚举类型的一种：'wifi'-wifi网络，'2G/3G/4G'-2G、3G或者4G，'none'-没有网络连接，'unknown'-未知网络连接",
+      "Paras": []
+    },
+    {
+      "ID": "openWifiSetting",
+      "Name": "打开无线网络连接界面",
+      "Description": "打开无线网络连接界面，选择网络连接",
+      "ReturnType": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}

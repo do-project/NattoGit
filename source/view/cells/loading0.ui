@@ -1,0 +1,21 @@
+{
+	"RootView":{
+		"width":"750",
+		"id":"ladings",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"progressWidth":"20",
+				"progressColor":"33C7FFFF",
+				"progressBgColor":"444444AA",
+				"width":"80",
+				"x":"335",
+				"y":"10",
+				"style":"cycle",
+				"id":"do_ProgressBar2_1",
+				"type":"do_ProgressBar2"
+			}
+		],
+		"height":"100"
+	}
+}

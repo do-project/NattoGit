@@ -1,0 +1,108 @@
+﻿{
+  "ID": "do_ProgressBar1",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "进度条1",
+  "Version": "Internal",
+  "Description": "横向一组圆点样式的进度条",
+  "Icon": "",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "WindowsPhone": {
+    "Support": 1,
+    "MinVersion": "8.1"
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "changeImage",
+      "Name": "变化圆点图片",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "进度条变化的圆点图片背景图片，支持data://和source://,进度条样式为普通时有效",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "defaultImage",
+      "Name": "默认圆点图片",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "进度条每个圆点默认的背景图片，支持data://和source://,进度条样式为普通时有效",
+      "Design": {
+        "Type": "ImageSource",
+        "Data": []
+      }
+    },
+    {
+      "ID": "pointColors",
+      "Name": "圆点可选颜色组",
+      "Type": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "颜色组成的字符串，比如 000000FF,00FF00FF,#00FFFFFF，中间用逗号隔开。该颜色组用于设置圆点颜色，进度条样式为缩放时有效，当颜色数量大于圆点数量时，选中靠前的颜色，当颜色数量小于圆点数量时，重复选择颜色组中颜色",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "pointNum",
+      "Name": "圆点的数量",
+      "Type": "Number",
+      "DefaultValue": "0",
+      "EditType": "1",
+      "Group": "",
+      "Description": "圆点数量需要跟组件宽度相适应，宽度短，设置圆点数量过多，会显示不完整",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    },
+    {
+      "ID": "style",
+      "Name": "进度条样式",
+      "Type": "String",
+      "DefaultValue": "normal",
+      "EditType": "0",
+      "Group": "",
+      "Description": "进度条样式可以是以下几种类型：normal,zoom,普通样式：可以设置两种状态对应背景图片，动态改变背景图片的样式。缩放样式：可以设置多颜色，进度条圆点有缩放效果。",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "normal",
+            "value": "普通"
+          },
+          {
+            "id": "zoom",
+            "value": "缩放"
+          }
+        ]
+      }
+    }
+  ],
+  "Events": [],
+  "syncMethodes": [],
+  "asyncMethodes": []
+}
